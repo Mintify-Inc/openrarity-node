@@ -1,13 +1,14 @@
-const RarityCalculator = require('../models/RarityCalculator');
+const math = require('mathjs');
 
-function calculateRarity(attributes) {
-    try {
-        const calculator = new RarityCalculator(attributes);
-        return calculator.calculateRarity();
-    } catch (error) {
-        console.log(error);
-        return false;
+class RarityCalculator {
+    constructor(attributes) {
+        this.attributes = attributes;
     }
-};
 
-module.exports = { calculateRarity };
+    calculateRarity() {
+        const rarity = math.log(this.attributes.score) * 100;
+        return rarity;
+    }
+}
+
+module.exports = RarityCalculator;

@@ -1,3 +1,3 @@
-const {calculateRarity} = require('src/models/RarityCalculator');
+const {calculateRarity} = require('./src/controllers/rarityController');
 
 module.exports = { calculateRarity };
